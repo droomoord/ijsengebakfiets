@@ -32,7 +32,7 @@ const routes = [
   },
   {
     path: "/feestjes-en-partijen",
-    name: "Wie zijn wij?",
+    name: "Feestjes en partijen",
 
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Feestjes.vue"),

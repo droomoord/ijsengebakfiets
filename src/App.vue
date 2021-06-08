@@ -7,13 +7,15 @@
     </div>
     <navbar> </navbar>
     <div class="bgyellow wrapper">
-      <router-view> </router-view>
+      <b-container>
+        <router-view> </router-view>
+      </b-container>
     </div>
   </div>
 </template>
 
 <script>
-import navbar from "./components/navbar/navbar";
+import navbar from "./components/navbar/Navbar";
 export default {
   name: "App",
   components: { navbar },
@@ -82,6 +84,7 @@ export default {
 }
 .wrapper {
   width: 100%;
-  height: 500px;
+  min-height: 500px;
+  padding-top: 5%;
 }
 </style>

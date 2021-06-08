@@ -6,7 +6,7 @@
           >Wie zijn wij?</b-nav-item
         >
         <b-nav-item href="#" :to="'/waar-is-de-fiets'" active-class="active"
-          >Waar is de fiets op dit moment?</b-nav-item
+          >Waar is de fiets nu?</b-nav-item
         >
         <b-nav-item href="#" :to="'/fotos'" active-class="active"
           >Foto's</b-nav-item
@@ -31,7 +31,8 @@ export default {
 </script>
 
 <style>
-.navbar {
+.navbar-nav {
   justify-content: center !important;
+  width: 100%;
 }
 </style>

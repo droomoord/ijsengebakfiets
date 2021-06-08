@@ -5,7 +5,7 @@
       <img src="./assets/logo.jpeg" alt="" />
       <div class="text">IJs en Gebakfiets</div>
     </div>
-    <navbar> </navbar>
+    <Navbar> </Navbar>
     <div class="bgyellow wrapper">
       <b-container>
         <router-view> </router-view>
@@ -15,10 +15,10 @@
 </template>
 
 <script>
-import navbar from "./components/navbar/Navbar";
+import Navbar from "./components/navbar/Navbar.vue";
 export default {
   name: "App",
-  components: { navbar },
+  components: { Navbar },
 };
 </script>
 

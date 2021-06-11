@@ -24,8 +24,9 @@ export default {
   components: { Navbar },
   mounted() {
     console.log(this.$route.path);
-
-    if (this.$route.path === "/") this.$router.push("/wie-zijn-wij");
+    setTimeout(() => {
+      if (this.$route.path === "/") this.$router.push("/wie-zijn-wij");
+    }, 1000);
   },
 };
 </script>

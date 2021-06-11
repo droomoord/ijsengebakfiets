@@ -2,16 +2,20 @@
   <div>
     <template v-if="content.text">
       <p v-if="!content.active">
-        Wij zijn op dit moment niet aan het verkopen! Hou deze website in de
-        gaten als je wilt zien waar we zijn, en natuurlijk ook om te checken wat
-        voor lekker we op dat moment in de fiets hebben.
+        Wij zijn op dit moment niet aan het rondfietsen!
+        <br /><br />
+        <strong>Wil je 20% korting op je ijsje?</strong>
+        <br />
+        Hou deze website dan goed in de gaten. Als we gaan fietsen zetten we
+        hier de live-locatie aan en kun je ons volgen. Weet je ons te
+        onderscheppen? Dan krijg je 20% korting op je ijsje!
       </p>
       <template v-if="content.active">
+        <h4>Wij zijn op dit moment aan het verkopen!</h4>
         <p>
-          Wij zijn op dit moment aan het verkopen! Klik vanuit je smartphone op
-          de onderstaande link om onze live locatie te volgen. Als je kunt
-          aantonen dat je ons op deze manier hebt gevonden krijg je 20% korting
-          op je ijsje!
+          Klik vanuit je smartphone op de onderstaande link om onze live locatie
+          te volgen. Als je kunt aantonen dat je ons op deze manier hebt
+          gevonden krijg je 20% korting op je ijsje!
         </p>
         <vue-markdown :source="content.text"> </vue-markdown>
       </template>

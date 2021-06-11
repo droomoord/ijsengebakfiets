@@ -10,6 +10,10 @@
           active-class="active"
           >{{ page.title }}</b-nav-item
         >
+        <div class="logo red">
+          <img src="../../assets/logo.jpeg" alt="" />
+          <div class="text yellow">IJs en Gebakfiets</div>
+        </div>
       </b-navbar-nav>
     </b-navbar>
   </div>
@@ -53,6 +57,41 @@ export default {
 }
 .navbar-nav {
   justify-content: center !important;
+  gap: 7px;
   width: 100%;
+}
+@media only screen and (max-width: 600px) {
+  .navbar-nav {
+    font-size: 0.9em;
+  }
+}
+.logo {
+  width: 100px;
+  position: relative;
+  margin-top: 20px;
+  display: none;
+}
+.logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding: 5px;
+  background-color: white;
+  font-family: "Amatic SC", cursive;
+}
+.logo .text {
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  font-family: "Amatic SC", cursive;
+  font-weight: bold;
+  font-size: 2em;
+  text-shadow: 1px 1px rgb(0, 0, 0);
+  line-height: 1;
+}
+@media only screen and (max-width: 600px) {
+  .logo {
+    display: block;
+  }
 }
 </style>

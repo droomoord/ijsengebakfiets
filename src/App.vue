@@ -1,11 +1,14 @@
 <template>
   <div id="app">
     <div class="fiets" alt="" />
-    <div class="logo red">
+    <Navbar> </Navbar>
+    <div
+      class="logo red"
+      :class="{ 'mobile-disappear': this.$route.path !== '/' }"
+    >
       <img src="./assets/logo.jpeg" alt="" />
       <div class="text">IJs en Gebakfiets</div>
     </div>
-    <Navbar> </Navbar>
     <div class="bgyellow wrapper">
       <b-container>
         <router-view> </router-view>
@@ -19,6 +22,11 @@ import Navbar from "./components/navbar/Nav.vue";
 export default {
   name: "App",
   components: { Navbar },
+  mounted() {
+    console.log(this.$route.path);
+
+    if (this.$route.path === "/") this.$router.push("/wie-zijn-wij");
+  },
 };
 </script>
 
@@ -92,7 +100,7 @@ export default {
 }
 .wrapper {
   width: 100%;
-  min-height: 100vh;
+  min-height: 20vh;
   padding: 10vw 0;
   padding-top: 5%;
   padding-bottom: 100px;
@@ -103,10 +111,14 @@ export default {
     display: none;
   }
   .logo {
-    top: unset;
-    left: unset;
-    bottom: 0;
-    right: 0;
+    top: 40%;
+    left: 35%;
+  }
+  .mobile-disappear {
+    display: none;
+  }
+  .wrapper {
+    min-height: 90vh;
   }
 }
 </style>

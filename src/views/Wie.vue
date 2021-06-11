@@ -50,6 +50,7 @@ img {
   min-width: 250px;
   height: 250px;
   border-radius: 50%;
+  border: 2px solid #ef476f;
 }
 @media only screen and (max-width: 600px) {
   .wrapper {

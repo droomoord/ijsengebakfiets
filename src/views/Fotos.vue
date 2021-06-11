@@ -1,18 +1,16 @@
 <template>
   <div>
-    <Spinner v-if="loading"> </Spinner>
     <div>
       <foto v-if="enlarged" :url="enlargedUrl" @close="enlarged = false" />
-      <b-container fluid class=" bggreen foto-wrapper" v-show="!loading">
+      <b-container fluid class=" bggreen foto-wrapper">
         <b-img
-          v-for="foto in fotos"
-          :key="foto.url"
+          v-for="photo in content"
+          :key="photo._id"
           thumbnail
           fluid
-          :src="urlBase + foto.thumbnail"
+          :src="photo.formats.thumbnail.url"
           alt="foto"
-          @click="enlarge(urlBase + foto.url)"
-          @load="loading = false"
+          @click="enlarge(photo.formats.large.url)"
         ></b-img>
       </b-container>
     </div>
@@ -22,6 +20,7 @@
 <script>
 import axios from "axios";
 import foto from "../components/foto/Foto.vue";
+
 export default {
   name: "fotos",
   components: {
@@ -29,11 +28,9 @@ export default {
   },
   data() {
     return {
-      urlBase: "http://localhost:1337",
-      fotos: [],
+      content: [],
       enlarged: false,
       enlargedUrl: "",
-      loading: true,
     };
   },
   created: function() {
@@ -43,16 +40,13 @@ export default {
   methods: {
     getFotos: async function() {
       try {
-        const { data } = await axios.get(`${this.urlBase}/fotos`);
-        if (data.fotos && data.fotos.length > 0) {
-          data.fotos.forEach((foto) => {
-            this.fotos.push({
-              url: foto.url,
-              thumbnail: foto.formats.thumbnail.url,
-            });
-          });
-          this.fotos.reverse();
-        }
+        const { data } = await axios.get(
+          `https://strapi-wlh52.ondigitalocean.app/pages?route=${this.$route.path}`
+        );
+        this.content = data[0].photo;
+
+        this.content.reverse();
+        console.log(data);
       } catch (error) {
         console.log(error);
       }

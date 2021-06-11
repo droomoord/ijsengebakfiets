@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img class="fiets" src="./assets/fiets.jpeg" alt="" />
+    <div class="fiets" alt="" />
     <div class="logo red">
       <img src="./assets/logo.jpeg" alt="" />
       <div class="text">IJs en Gebakfiets</div>
@@ -59,12 +59,20 @@ export default {
 <style scoped>
 .fiets {
   width: 100vw;
+  height: 80vh;
+  background-image: url("./assets/fiets.jpeg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  background-size: cover;
 }
 .logo {
-  position: absolute;
+  position: fixed;
   top: 30px;
   left: 60px;
   width: 300px;
+  z-index: 4;
 }
 .logo img {
   width: 100px;
@@ -84,7 +92,21 @@ export default {
 }
 .wrapper {
   width: 100%;
-  min-height: 500px;
+  min-height: 100vh;
+  padding: 10vw 0;
   padding-top: 5%;
+  padding-bottom: 100px;
+}
+
+@media only screen and (max-width: 600px) {
+  .fiets {
+    display: none;
+  }
+  .logo {
+    top: unset;
+    left: unset;
+    bottom: 0;
+    right: 0;
+  }
 }
 </style>

@@ -1,28 +1,44 @@
 <template>
   <div class="wrapper">
-    <img src="../assets/tekening.jpeg" alt="" />
+    <img :src="imgSrc" alt="" />
     <div>
-      <p>
-        Kerstin en Kris Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Eligendi, ullam sit quo, culpa optio a similique corrupti molestiae
-        obcaecati dolorum facilis tempora minima reprehenderit distinctio
-        consectetur. Accusantium eum placeat iure. Lorem ipsum, dolor sit amet
-        consectetur adipisicing elit. Unde magnam ea sit beatae quos distinctio
-        culpa, suscipit earum veniam, ad recusandae quisquam excepturi officia
-        aliquam, nemo quibusdam. Quis, eius consequuntur!
-      </p>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus
-        consequuntur laudantium temporibus minus distinctio ducimus similique
-        accusamus reiciendis quas! Veritatis nam rerum iure labore
-        exercitationem numquam modi sunt quia tempora!
-      </p>
+      <vue-markdown v-if="content.text" :source="content.text"></vue-markdown>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import axios from "axios";
+import VueMarkdown from "vue-markdown-render";
+
+export default {
+  name: "wie",
+  data() {
+    return {
+      content: {},
+      imgSrc: "",
+    };
+  },
+  components: {
+    VueMarkdown,
+  },
+  mounted() {
+    this.getContent();
+  },
+  methods: {
+    getContent: async function() {
+      try {
+        const { data } = await axios.get(
+          `https://strapi-wlh52.ondigitalocean.app/pages?route=${this.$route.path}`
+        );
+        this.content = data[0];
+        this.imgSrc = this.content.photo[0].formats.small.url;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
+};
 </script>
 
 <style scoped>

@@ -101,7 +101,7 @@ export default {
 }
 .wrapper {
   width: 100%;
-  min-height: 20vh;
+  min-height: 70vh;
   padding: 10vw 0;
   padding-top: 5%;
   padding-bottom: 100px;

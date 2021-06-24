@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="waar">
     <template v-if="content.text">
       <p v-if="!content.active">
         Wij zijn op dit moment niet aan het rondfietsen!
@@ -12,10 +12,11 @@
       </p>
       <template v-if="content.active">
         <h4>Wij zijn op dit moment aan het verkopen!</h4>
+        <br />
         <p>
-          Klik vanuit je smartphone op de onderstaande link om onze live locatie
-          te volgen. Als je kunt aantonen dat je ons op deze manier hebt
-          gevonden krijg je 20% korting op je ijsje!
+          Klik op de onderstaande link om onze live locatie te volgen. Als je
+          kunt aantonen dat je ons op deze manier hebt gevonden krijg je
+          <strong>20% korting</strong> op je ijsje!
         </p>
         <vue-markdown :source="content.text"> </vue-markdown>
       </template>
@@ -54,4 +55,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.waar {
+  width: 80%;
+}
+h4 {
+  text-align: center;
+}
+</style>

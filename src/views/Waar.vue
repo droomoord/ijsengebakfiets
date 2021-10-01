@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 import VueMarkdown from "vue-markdown-render";
 export default {
   name: "waar",
@@ -41,15 +41,39 @@ export default {
     this.getContent();
   },
   methods: {
-    getContent: async function() {
-      try {
-        const { data } = await axios.get(
-          `https://strapi-wlh52.ondigitalocean.app/pages?route=${this.$route.path}`
-        );
-        this.content = data[0];
-      } catch (error) {
-        console.log(error);
-      }
+    // dynamic:
+
+    // getContent: async function() {
+    //   try {
+    //     const { data } = await axios.get(
+    //       `https://strapi-wlh52.ondigitalocean.app/pages?route=${this.$route.path}`
+    //     );
+    //     console.log(JSON.stringify(data[0]));
+
+    //     this.content = data[0];
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // },
+
+    // hardcoded:
+
+    getContent: function() {
+      this.content = {
+        photo: [],
+        _id: "60c320bccad99f1f669bfdc5",
+        order: 2,
+        title: "Waar is de fiets nu?",
+        text:
+          "[https://maps.app.goo.gl/cZeUBxi77ezwKuzE8](https://maps.app.goo.gl/cZeUBxi77ezwKuzE8)\n\nVandaag hebben we onze ijsjes de volgende smaken:\n- Meloen\n- Hazelnoot\n- Chocola \n\n",
+        active: false,
+        published_at: "2021-06-11T08:37:18.620Z",
+        createdAt: "2021-06-11T08:37:16.331Z",
+        updatedAt: "2021-07-17T18:41:23.284Z",
+        __v: 0,
+        route: "/waar-is-de-fiets",
+        id: "60c320bccad99f1f669bfdc5",
+      };
     },
   },
 };

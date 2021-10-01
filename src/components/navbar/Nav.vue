@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 export default {
   name: "navbar",
   mounted() {
@@ -32,18 +32,31 @@ export default {
     };
   },
   methods: {
-    getTitles: async function() {
-      try {
-        const { data } = await axios.get(
-          "https://strapi-wlh52.ondigitalocean.app/pages"
-        );
-        data.sort((a, b) => a.order - b.order);
-        this.pages = data.map((page) => {
-          return { title: page.title, route: page.route };
-        });
-      } catch (error) {
-        console.log(error);
-      }
+    // dynamic:
+
+    // getTitles: async function() {
+    //   try {
+    //     const { data } = await axios.get(
+    //       "https://strapi-wlh52.ondigitalocean.app/pages"
+    //     );
+    //     data.sort((a, b) => a.order - b.order);
+    //     this.pages = data.map((page) => {
+    //       return { title: page.title, route: page.route };
+    //     });
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // },
+
+    //hardcoded:
+
+    getTitles: function() {
+      this.pages = [
+        { title: "Wie zijn wij?", route: "/wie-zijn-wij" },
+        { title: "Waar is de fiets nu?", route: "/waar-is-de-fiets" },
+        { title: "Foto's", route: "/fotos" },
+        { title: "Feestjes en partijen", route: "/feestjes-en-partijen" },
+      ];
     },
   },
 };
